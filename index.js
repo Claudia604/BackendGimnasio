@@ -4,6 +4,7 @@ import morgan from "morgan";
 import "./src/database/database.js";
 import path from "path";
 import { fileURLToPath } from "url";
+import clasesRouter from "./src/routes/clases.routes.js";
 
 const app = express();
 
@@ -23,7 +24,9 @@ const __dirname = path.dirname(__filename)
 app.use(express.static(path.join(__dirname, '/public')))
 
 // http://localhost:4001/gym
-app.get("/gym", (req, res) => {
-  console.log("Prueba de solicitud get");
-  res.send("Desde mi backend");
-});
+// app.get("/gym", (req, res) => {
+//   console.log("Prueba de solicitud get");
+//   res.send("Desde mi backend");
+// });
+
+app.use('/api', clasesRouter)
