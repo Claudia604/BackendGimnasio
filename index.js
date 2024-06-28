@@ -20,13 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename)
-app.use(express.static(path.join(__dirname, '/public')))
+const __dirname = path.dirname(__filename);
+app.use(express.static(path.join(__dirname, "/public")));
 
-// http://localhost:4001/gym
-// app.get("/gym", (req, res) => {
-//   console.log("Prueba de solicitud get");
-//   res.send("Desde mi backend");
-// });
-
-app.use('/api', clasesRouter)
+app.use("/api", clasesRouter);
