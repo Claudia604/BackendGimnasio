@@ -4,7 +4,7 @@ const claseSchema = new Schema({
   clase: {
     type: String,
     require: true,
-    minLength: 5,
+    minLength: 3,
     maxLength: 25,
     unique: true,
   },
@@ -27,7 +27,7 @@ const claseSchema = new Schema({
     },
   },
   horario: {
-    type: Number,
+    type: String,
     require: true,
     validate: {
       validator: (horaClase) => {
