@@ -1,9 +1,14 @@
 import { json } from "express";
 import Clase from "../database/models/clase.js";
 
-export const listarClases = (req, res) => {
-  console.log("Prueba de solicitud get");
-  res.send("Desde mi backend");
+export const listarClase = async (req, res) => {
+  try {
+    const clases = await Clase.find();
+    res.status(200).json(clases);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ mensaje: "Ocurrio un error al listar las clases" });
+  }
 };
 
 export const crearClase = async (req, res) => {

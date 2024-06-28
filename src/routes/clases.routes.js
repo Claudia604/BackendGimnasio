@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { crearClase, listarClases } from "../controllers/clases.controllers.js";
+import { crearClase, listarClase } from "../controllers/clases.controllers.js";
 
 const router = Router();
 
-router.route("/gym").get(listarClases);
-router.route("/clases").post(crearClase);
+router.route("/gym").get(listarClase);
+router.route("/clases").post(crearClase).get(listarClase);
 
 export default router;
