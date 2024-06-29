@@ -2,12 +2,19 @@
   "name": "backendgym",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js",
-    "dev": "node --watch index.js"
+    "dev": "node --env-file .env --watch index.js"
   },
   "keywords": [],
   "author": "Claudia Torres, Cristian Diaz",
   "license": "ISC",
-  "description": "Backend Gimnasio"
+  "description": "Backend Gimnasio",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.4.4",
+    "morgan": "^1.10.0"
+  }
 }
