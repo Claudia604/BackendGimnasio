@@ -58,3 +58,21 @@ export const editarClase = async (req, res) => {
     });
   }
 };
+
+export const borrarClase = async (req, res) => {
+  try {
+    const claseBuscada = await Clase.findById(req.params.id);
+    if (!claseBuscada) {
+      return res.status(400).json({
+        mensaje: `La clase no existe`,
+      });
+    }
+    await Clase.findByIdAndDelete(req.params.id);
+    res.status(200).json({ mensaje: "La clase fue eliminada correctamente" });
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ mensaje: "Ocurrio un error al intentar borrar una clase" });
+  }
+};
