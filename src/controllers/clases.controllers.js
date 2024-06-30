@@ -11,6 +11,21 @@ export const listarClase = async (req, res) => {
   }
 };
 
+export const obtenerClase = async (req, res) => {
+  try {
+    console.log(req.params.id);
+    const claseBuscada = await Clase.findById(req.params.id);
+    if (!claseBuscada) {
+     return res.status(400).json({
+        mensaje: `La clase no existe`,
+      });
+    }
+    res.status(200).json(claseBuscada);
+  } catch (error) {
+    res.status(500).json({ mensaje: "Ocurrio un error al obtener la clase" });
+  }
+};
+
 export const crearClase = async (req, res) => {
   try {
     console.log(req.body);
