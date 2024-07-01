@@ -26,6 +26,8 @@ export const obtenerClase = async (req, res) => {
 
 export const crearClase = async (req, res) => {
   try {
+   
+
     const claseNueva = new Clase(req.body);
     await claseNueva.save();
     res.status(201).json({
