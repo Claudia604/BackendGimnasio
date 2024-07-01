@@ -1,4 +1,3 @@
-import { validationResult } from "express-validator";
 import Clase from "../database/models/clase.js";
 
 export const listarClase = async (req, res) => {
@@ -27,10 +26,7 @@ export const obtenerClase = async (req, res) => {
 
 export const crearClase = async (req, res) => {
   try {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errores: errors.array() });
-    }
+   
 
     const claseNueva = new Clase(req.body);
     await claseNueva.save();
