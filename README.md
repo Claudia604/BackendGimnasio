@@ -65,7 +65,13 @@ _Claudia Alejandra Torres_
 _Iñaki Zavaleta_
 - Github: https://github.com/inakizavaleta10
 
+## 📞 Contactanos
 
+| Medio    | Link                                    |
+| -------- | --------------------------------------- |
+| Email    | Sktgym@gmail.com                   |
+| Twitter  | https://twitter.com/Sktgym        |
+| Linkedin | https://www.linkedin.com/in/Sktgym |
 
 
 
