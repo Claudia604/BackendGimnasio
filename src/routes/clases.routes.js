@@ -16,7 +16,7 @@ router.route("/clases").post([validacionClase], crearClase).get(listarClase);
 router
   .route("/clases/:id")
   .get(obtenerClase)
-  .put(editarClase)
+  .put([validacionClase], editarClase)
   .delete(borrarClase);
 
 export default router;
