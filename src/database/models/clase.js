@@ -35,6 +35,11 @@ const claseSchema = new Schema({
       },
     },
   },
+  usuarios: {
+    type: String,
+    require: true,
+    minLength: 3,
+  },  
 });
 
 const Clase = mongoose.model("clase", claseSchema);
