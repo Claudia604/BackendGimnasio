@@ -11,6 +11,20 @@ export const listarClase = async (req, res) => {
   }
 };
 
+export const obtenerClase = async (req, res) => {
+  try {
+    const claseBuscada = await Clase.findById(req.params.id);
+    if (!claseBuscada) {
+      return res.status(400).json({
+        mensaje: `La clase no existe`,
+      });
+    }
+    res.status(200).json(claseBuscada);
+  } catch (error) {
+    res.status(500).json({ mensaje: "Ocurrio un error al obtener la clase" });
+  }
+};
+
 export const crearClase = async (req, res) => {
   try {
     console.log(req.body);
@@ -19,6 +33,24 @@ export const crearClase = async (req, res) => {
     res.status(201).json({
       mensaje: "La clase fue creada correctamente",
     });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({
+      mensaje: "Ocurrio un error, no se pudo crear la clase",
+    });
+  }
+};
+
+export const editarClase = async (req, res) => {
+  try {
+    const claseBuscada = await Clase.findById(req.params.id);
+    if (!claseBuscada) {
+      return res.status(400).json({
+        mensaje: `La clase no existe`,
+      });
+    }
+    await Clase.findByIdAndUpdate(req.params.id, req.body);
+    res.status(200).json({ mensaje: "La clase fue editada correctamente" });
   } catch (error) {
     console.error(error);
     res.status(500).json({
