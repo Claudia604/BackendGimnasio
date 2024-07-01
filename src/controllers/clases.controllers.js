@@ -1,4 +1,3 @@
-import { json } from "express";
 import Clase from "../database/models/clase.js";
 
 export const listarClase = async (req, res) => {
@@ -27,7 +26,6 @@ export const obtenerClase = async (req, res) => {
 
 export const crearClase = async (req, res) => {
   try {
-    console.log(req.body);
     const claseNueva = new Clase(req.body);
     await claseNueva.save();
     res.status(201).json({
@@ -49,7 +47,11 @@ export const editarClase = async (req, res) => {
         mensaje: `La clase no existe`,
       });
     }
-    await Clase.findByIdAndUpdate(req.params.id, req.body);
+    const claseEditada = await Clase.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
     res.status(200).json({ mensaje: "La clase fue editada correctamente" });
   } catch (error) {
     console.error(error);
