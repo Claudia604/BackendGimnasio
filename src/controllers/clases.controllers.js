@@ -1,4 +1,3 @@
-import { json } from "express";
 import Clase from "../database/models/clase.js";
 
 export const listarClase = async (req, res) => {
@@ -27,7 +26,8 @@ export const obtenerClase = async (req, res) => {
 
 export const crearClase = async (req, res) => {
   try {
-    console.log(req.body);
+   
+
     const claseNueva = new Clase(req.body);
     await claseNueva.save();
     res.status(201).json({
@@ -49,12 +49,34 @@ export const editarClase = async (req, res) => {
         mensaje: `La clase no existe`,
       });
     }
-    await Clase.findByIdAndUpdate(req.params.id, req.body);
+    const claseEditada = await Clase.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
     res.status(200).json({ mensaje: "La clase fue editada correctamente" });
   } catch (error) {
     console.error(error);
     res.status(500).json({
       mensaje: "Ocurrio un error, no se pudo crear la clase",
     });
+  }
+};
+
+export const borrarClase = async (req, res) => {
+  try {
+    const claseBuscada = await Clase.findById(req.params.id);
+    if (!claseBuscada) {
+      return res.status(400).json({
+        mensaje: `La clase no existe`,
+      });
+    }
+    await Clase.findByIdAndDelete(req.params.id);
+    res.status(200).json({ mensaje: "La clase fue eliminada correctamente" });
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ mensaje: "Ocurrio un error al intentar borrar una clase" });
   }
 };
