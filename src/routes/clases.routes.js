@@ -6,17 +6,20 @@ import {
   listarClase,
   obtenerClase,
 } from "../controllers/clases.controllers.js";
-import { check } from "express-validator";
 import validacionClase from "../helpers/validacionClase.js";
+import verificarJWT from "../helpers/verificarJWT.js";
 
 const router = Router();
 
 router.route("/gym").get(listarClase);
-router.route("/clases").post([validacionClase], crearClase).get(listarClase);
+router
+  .route("/clases")
+  .post([verificarJWT, validacionClase], crearClase)
+  .get(listarClase);
 router
   .route("/clases/:id")
   .get(obtenerClase)
-  .put([validacionClase], editarClase)
-  .delete(borrarClase);
+  .put([verificarJWT, validacionClase], editarClase)
+  .delete(verificarJWT, borrarClase);
 
 export default router;
