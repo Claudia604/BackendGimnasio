@@ -33,11 +33,16 @@
 - Visual Code
 - Node Js
 
-# Importante
+## Importante
 
  Para que funcione el proyecto en su PC debe cumplir con **todos** los requisitos.
 
 
+Clonar repositorio:
+
+```bash
+git clone https://github.com/CristianDecidueye/Gimnasio.git
+```
 
 
 
