@@ -23,3 +23,30 @@ export const crearUsuario = async (req, res) => {
       .json({ mensaje: "Ocurrio un error al intentar crear un usuario" });
   }
 };
+
+export const login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const usuarioExistente = await Usuario.findOne({ email });
+    if (!usuarioExistente) {
+      return res
+        .status(400)
+        .json({ mensaje: "Correo o password incorrecto - email" });
+    }
+    const passwordValido = bcrypt.compareSync(
+      password,
+      usuarioExistente.password
+    );
+    if (!passwordValido) {
+      return res
+        .status(400)
+        .json({ mensaje: "Correo o password incorrecto - password" });
+    }
+    res.status(200).json({ mensaje: "Los datos del usuario son validos" });
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .json({ mensaje: "Ocurrio un error al intentar loguear a un usuario" });
+  }
+};
