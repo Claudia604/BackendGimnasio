@@ -33,6 +33,10 @@
 - Visual Code
 - Node Js
 
+# Importante
+
+ Para que funcione el proyecto en su PC debe cumplir con **todos** los requisitos.
+
 
 
 
