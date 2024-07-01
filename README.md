@@ -11,3 +11,6 @@
 - [👩‍💻 Autores](#👩‍💻-autores)
 - [📞 Contactanos](#📞-contactanos)
 - [📋 Licencia](#licencia)
+
+## 💻 Sobre GYM
+# Descripcion mas a fondo del proyecto
