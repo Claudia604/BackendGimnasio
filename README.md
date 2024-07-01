@@ -73,6 +73,10 @@ _Iñaki Zavaleta_
 | Twitter  | https://twitter.com/Sktgym        |
 | Linkedin | https://www.linkedin.com/in/Sktgym |
 
+## Licencia
+
+codigo y documentacion copyright 2023-2024 de los autores de GYM. Destribuido bajo la licencia de WIT. consulte el archivo LICENSE.md para obtener mas informacion.
+
 
 
 
